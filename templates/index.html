@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basil Plant Classifier</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom Styles */
+        body {
+            background: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url('{{ url_for("static", filename="img/Banner_1.jpg") }}') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .result-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background: white;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        /* Neat styling for benefits */
+        .benefits-list {
+            padding-left: 20px;
+            margin-top: 20px;
+        }
+
+        .benefit-item {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .benefits-header {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .potential-benefits {
+            margin-top: 10px;
+            list-style-type: none;
+            padding-left: 0;
+            font-size: 1.1rem;
+        }
+
+        .potential-benefits li {
+            margin-bottom: 10px;
+        }
+
+        .result-card .badge {
+            font-size: 1.1rem;
+            padding: 8px 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1>Medicinal Plant Classifier</h1>
+        <p>Upload an image and identify its health status dynamically!</p>
+    </div>
+
+    <!-- Form Section -->
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8">
+                <div class="result-card">
+                    <h3 class="text-center mb-4">Upload Image</h3>
+                    <form method="POST" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="plant_image" class="form-label">Choose an Image</label>
+                            <input class="form-control" type="file" name="plant_image" id="plant_image" required>
+                        </div>
+                        <button class="btn btn-primary w-100" type="submit">Classify</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Classification Result Section -->
+        {% if classification %}
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-8">
+                <div class="result-card">
+                    <h3 class="text-center">Classification Result</h3>
+                    <div class="text-center my-4">
+                        <strong>Status:</strong>
+                        {% if classification.is_healthy %}
+                        <span class="badge bg-success">Healthy</span>
+                        {% else %}
+                        <span class="badge bg-danger">Diseased</span>
+                        {% endif %}
+                    </div>
+
+                    <!-- Displaying Basil Benefits when healthy -->
+                    {% if classification.is_healthy %}
+                    <div class="benefits-header">Basil Benefits:</div>
+                    <ul class="benefits-list">
+                        {% for benefit in classification.basil_benefits %}
+                        <li class="benefit-item">{{ benefit }}</li>
+                        {% endfor %}
+                    </ul>
+
+                    <div class="benefits-header">Potential Benefits:</div>
+                    <ul class="potential-benefits">
+                        <li>Digestive support</li>
+                        <li>Respiratory relief</li>
+                        <li>Stress reduction</li>
+                    </ul>
+                    {% endif %}
+
+                    <!-- Displaying disease info when not healthy -->
+                    {% if not classification.is_healthy %}
+                    <p><strong>Disease Name:</strong> {{ classification.disease_name }}</p>
+                    <p><strong>Lost Properties:</strong></p>
+                    <ul>
+                        {% for prop in classification.lost_properties %}
+                        <li>{{ prop }}</li>
+                        {% endfor %}
+                    </ul>
+                    <p><strong>Recommended Measures:</strong></p>
+                    <ul>
+                        {% for measure in classification.measures %}
+                        <li>{{ measure }}</li>
+                        {% endfor %}
+                    </ul>
+                    <hr>
+                    <p><strong>Important Note:</strong></p>
+                    <ul>
+                        <li>Always prioritize prevention and cultural practices to minimize the risk of disease.</li>
+                        <li>If using chemical controls, follow label instructions and ensure safety for edible plants.</li>
+                        <li>Consider organic methods of disease control whenever possible.</li>
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

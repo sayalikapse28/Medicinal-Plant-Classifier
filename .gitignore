@@ -1,0 +1,19 @@
+# Gradle, Python, and build files
+.gradle/
+build/
+__pycache__/
+*.pyc
+*.pkl
+*.h5
+*.log
+
+# IDEs
+.vscode/
+.idea/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Env
+.env

@@ -1,0 +1,74 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Hero Section */
+.hero-section {
+  background-image: url('img/bg-img/grass.jpg'); /* Replace with actual path to the grass image */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero-section .navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.hero-section .hero-content {
+  color: white;
+  text-align: center;
+  max-width: 700px;
+}
+
+.hero-section .hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.hero-section .hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.hero-section .btn {
+  font-size: 1rem;
+  padding: 10px 20px;
+  text-transform: uppercase;
+}
+
+/* Form Section */
+#form-section {
+  padding: 50px 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+}
+
+#form-section h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+}
+
+#form-section .form-label {
+  font-weight: bold;
+  color: #333;
+}
+
+#form-section .btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
