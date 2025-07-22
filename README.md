@@ -2,6 +2,7 @@ Added Project detailed report, PPT.
 
 
 Added Output Screens:
+static/img/1.png
 
 
 
