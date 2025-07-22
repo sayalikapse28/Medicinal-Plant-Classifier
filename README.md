@@ -3,22 +3,22 @@ Added Project detailed report, PPT.
 
 Added Output Screens:
 <br>
-<img src="static/img/1.png"/  width="500">
+<img src="static/img/1.png">
 <br>
-<img src="static/img/22.png"/  width="500">
+<img src="static/img/22.png">
 <br>
-<img src="static/img/3.png"/  width="500">
+<img src="static/img/3.png">
 <br>
-<img src="static/img/4.png"/  width="500">
+<img src="static/img/4.png">
 
 <br>
-<img src="static/img/5.png"/  width="500">
+<img src="static/img/5.png">
 
 <br>
-<img src="static/img/6.png"/  width="500">
+<img src="static/img/6.png">
 
 <br>
-<img src="static/img/1\7.png"/  width="500">
+<img src="static/img/1\7.png">
 
 
 Added code.
