@@ -2,7 +2,8 @@ Added Project detailed report, PPT.
 
 
 Added Output Screens:
-static/img/1.png
+<img src="static/img/1.png" alt="Project Logo" width="200"/>
+
 
 
 
